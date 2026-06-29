@@ -1,0 +1,34 @@
+{
+  "name": "context-warden",
+  "version": "0.1.0",
+  "description": "Runtime context-rot defense for Claude Code: observation masking, an ACE-style compaction playbook, and a lean session overlay that keeps the working set small.",
+  "author": {
+    "name": "Gabriel Zavelinski"
+  },
+  "homepage": "https://github.com/Zavelinski/context-warden",
+  "repository": "https://github.com/Zavelinski/context-warden",
+  "license": "MIT",
+  "keywords": [
+    "context-engineering",
+    "context-rot",
+    "compaction",
+    "observation-masking",
+    "tokens",
+    "claude-code",
+    "ace"
+  ],
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/context-warden-activate.js\"",
+            "timeout": 5,
+            "statusMessage": "Loading context-warden..."
+          }
+        ]
+      }
+    ]
+  }
+}

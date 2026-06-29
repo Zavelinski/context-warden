@@ -1,0 +1,22 @@
+{
+  "name": "context-warden",
+  "owner": {
+    "name": "Gabriel Zavelinski"
+  },
+  "metadata": {
+    "description": "Marketplace hosting the context-warden plugin."
+  },
+  "plugins": [
+    {
+      "name": "context-warden",
+      "description": "Runtime context-rot defense for Claude Code: observation masking, an ACE-style compaction playbook, and a lean session overlay.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Gabriel Zavelinski"
+      },
+      "source": "./",
+      "category": "productivity",
+      "homepage": "https://github.com/Zavelinski/context-warden"
+    }
+  ]
+}
