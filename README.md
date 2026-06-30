@@ -1,5 +1,10 @@
 # context-warden
 
+[![License: MIT](https://img.shields.io/github/license/Zavelinski/context-warden)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/Zavelinski/context-warden?style=flat)](https://github.com/Zavelinski/context-warden/stargazers)
+[![Last commit](https://img.shields.io/github/last-commit/Zavelinski/context-warden)](https://github.com/Zavelinski/context-warden/commits)
+[![Claude Code plugin](https://img.shields.io/badge/Claude%20Code-plugin-8A2BE2)](https://claude.com/claude-code)
+
 Runtime context-rot defense for Claude Code. A lean session overlay plus an on-demand compaction skill that keeps the working set small and turns "compact" into a structured playbook instead of a raw transcript squeeze.
 
 ## Why
@@ -15,27 +20,25 @@ context-warden brings that discipline into the session.
 
 The overlay is intentionally short, emitting the whole skill every session would itself be context rot.
 
-## Install (Claude Code, local directory marketplace)
+## Install
 
-```jsonc
-// ~/.claude/settings.json
-"extraKnownMarketplaces": {
-  "context-warden": { "source": { "source": "directory", "path": "C:\\Users\\<you>\\context-warden" } }
-},
-"enabledPlugins": {
-  "context-warden@context-warden": true
-}
+### Option 1 — claude-code-skills marketplace (recommended)
+
+```bash
+/plugin marketplace add Zavelinski/claude-code-skills
+/plugin install context-warden@claude-code-skills
 ```
 
-Or, after publishing to GitHub:
+Update later with `/plugin marketplace update claude-code-skills`.
 
-```jsonc
-"extraKnownMarketplaces": {
-  "context-warden": { "source": { "source": "github", "repo": "<you>/context-warden" } }
-}
+### Option 2 — standalone marketplace
+
+```bash
+/plugin marketplace add Zavelinski/context-warden
+/plugin install context-warden@context-warden
 ```
 
-Restart Claude Code. You should see `CONTEXT-WARDEN ACTIVE` at session start.
+context-warden registers a `SessionStart` hook through the Claude Code consent UI (no manual `settings.json` edit). Restart Claude Code. You should see `CONTEXT-WARDEN ACTIVE` at session start.
 
 ## Usage
 
@@ -50,3 +53,7 @@ This is discipline plus a compaction template, not a token meter. The cited perc
 ## License
 
 MIT
+
+---
+
+Part of the **[claude-code-skills](https://github.com/Zavelinski/claude-code-skills)** collection: a suite of focused, original Claude Code skills.
